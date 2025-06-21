@@ -1,0 +1,50 @@
+body {
+    background-color: #f5f7fa;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.admin-menu .nav-link {
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.admin-menu .nav-link:hover,
+.admin-menu .nav-link.active {
+    background: #007bff;
+    color: white;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.table-responsive {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.badge-admin {
+    background: #007bff;
+}
+
+.badge-superadmin {
+    background: #dc3545;
+}
