@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - TopUp Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Navbar Admin -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-gamepad"></i> Admin Panel
+            </a>
+            <div class="ml-auto">
+                <span class="text-white mr-3">
+                    <i class="fas fa-user"></i> <span id="current-user"></span>
+                </span>
+                <button id="logoutBtn" class="btn btn-outline-light">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <ul class="nav flex-column admin-menu">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#dashboard" data-section="dashboard">
+                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#products" data-section="products">
+                                    <i class="fas fa-gamepad"></i> Kelola Produk
+                                </a>
+                            </li>
+                            <li class="nav-item" id="adminManagementLink" style="display:none;">
+                                <a class="nav-link" href="#admins" data-section="admins">
+                                    <i class="fas fa-users-cog"></i> Manajemen Admin
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="col-md-9">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section">
+                    <h4 class="mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard</h4>
+                    <div class="row">
+                        <!-- Stats Cards -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm bg-primary text-white">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-gamepad"></i> Total Produk</h5>
+                                    <h3 id="totalProducts">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm bg-success text-white">
+                                <div class="card-body">
+                                    <h5><i class="fas fa-users"></i> Total Admin</h5>
+                                    <h3 id="totalAdmins">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Product Management Section -->
+                <section id="products-section" class="content-section" style="display:none;">
+                    <div class="d-flex justify-content-between mb-4">
+                        <h4><i class="fas fa-gamepad"></i> Kelola Produk</h4>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+                            <i class="fas fa-plus"></i> Tambah Produk
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Produk</th>
+                                            <th>Harga</th>
+                                            <th>Kategori</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="productsTable">
+                                        <!-- Products will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Admin Management Section (Only for superadmin) -->
+                <section id="admins-section" class="content-section" style="display:none;">
+                    <div class="d-flex justify-content-between mb-4">
+                        <h4><i class="fas fa-users-cog"></i> Manajemen Admin</h4>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#addAdminModal">
+                            <i class="fas fa-user-plus"></i> Tambah Admin
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Username</th>
+                                            <th>Nama</th>
+                                            <th>Role</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="adminsTable">
+                                        <!-- Admins will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Produk -->
+    <div class="modal fade" id="addProductModal" tabindex="-1">
+        <!-- Modal content... -->
+    </div>
+
+    <!-- Modal Tambah Admin -->
+    <div class="modal fade" id="addAdminModal" tabindex="-1">
+        <!-- Modal content... -->
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
